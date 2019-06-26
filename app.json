@@ -1,13 +1,43 @@
 {
   "pages": [
+    "page/listenPage/listenPage",
+    "page/detailPage/detailPage",
+    "pages/tabOne/tabOne",
+    "pages/firstPage/first",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/tabTwo/tabTwo",
+    "pages/message/message"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarBackgroundColor": "#ff4",
+    "navigationBarTitleText": "分答",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#f00",
+    "list": [
+      {
+        "pagePath": "page/listenPage/listenPage",
+        "text":"收听",
+        "iconPath": "pages/img/listen.png",
+        "selectedIconPath": "pages/img/listen.png"
+      },
+      {
+        "pagePath": "pages/tabOne/tabOne",
+        "text": "心声",
+        "iconPath": "pages/img/love_sound.png",
+        "selectedIconPath": "pages/img/love_sound.png"
+      },
+      {
+        "pagePath": "pages/tabTwo/tabTwo",
+        "text": "我的",
+        "iconPath": "pages/img/person.png",
+        "selectedIconPath": "pages/img/person.png"
+      }
+    ]
+  }
+
 }
