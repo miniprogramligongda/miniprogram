@@ -1,0 +1,26 @@
+<include src="../templates/header" />
+<input placeholder='请输入快递号' />
+<button class="search_btn" type="primary" bindtap='btnClick'>查询</button>
+
+<view class="view1" bindtap='view1click' id="view1" data-title="新闻标题" data-id="100">
+  view1
+  <view class="view2" bindtap='view2click' id="view2">
+    view2
+    <view class="view3" bindtap='view3click' id="view3">
+      view3
+    </view>
+
+  </view>
+
+</view>
+<!-- <button type="default" > default </button>
+<button type="primary" bindtap='btnClick'>{{btnText}}</button>
+<text wx:if="{{show}}">{{text}} 1</text>
+<view wx:else>{{text}} 2</view>
+<view wx:for="{{news}}" wx:for-item="itemx" wx:for-index="idx">
+{{idx}} -{{itemx}}
+</view> -->
+
+
+<import src="../templates/footer" />
+<template is="footer2" data="{{text:'导入设置的内容...'}}"/>

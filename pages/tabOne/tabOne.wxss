@@ -1,0 +1,37 @@
+.slides{
+  height: 380rpx;
+}
+.slides image{
+  height: 100%;
+  width:100%;
+}
+.grid{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #fff;
+  font-size: 28rpx;
+}
+
+.grid .item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width:250rpx;
+  height:250rpx;
+  background-color: #fff;
+  border-top: 1rpx solid #eee;
+  border-right: 1rpx solid #eee;
+  box-sizing: border-box;
+}
+
+.grid .item image{
+  width:70rpx;
+  height:70rpx;
+}
+
+.grid .item text{
+  display: block;
+  color: #888;
+  margin-top: 20rpx;
+}

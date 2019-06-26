@@ -1,0 +1,9 @@
+<template name="footer1">
+这里是底部内容1
+</template>
+<template name="footer2">
+这里是底部内容2 - {{text}}
+</template>
+<template name="footer3">
+这里是底部内容3
+</template>

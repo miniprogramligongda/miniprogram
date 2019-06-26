@@ -1,0 +1,20 @@
+<!--page/listenPage/listenPage.wxml-->
+<view class="search">
+    <input class="searchInput" placeholder='搜索' />
+    <icon class="searchIcon" bindtap='searchListen' type="search" size="15" />
+</view>
+
+<view calss="cells">
+    <navigator class="item hover_demo" wx:for="{{shops}}" wx:key="id" url="../../page/detailPage/detailPage?item{{item.id}}">
+        <image class="img" src="{{item.images[0]}}" mode="aspectFill" />
+        <view class="meta">
+            <text class="name">电话：{{item.name}}</text>
+            <text class="phone">地址：{{item.phone}}</text>
+            <text class="address">营业时间{{item.businessHours}}</text>
+        </view>
+        <view class="score">{{item.score}}</view>
+    </navigator>
+</view>
+<!-- <loading>dd</loading> -->
+<view  wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>
+<view  wx:else class="loadmore loading">--嘿！我是有底线的--</view>

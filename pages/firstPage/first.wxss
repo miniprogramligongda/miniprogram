@@ -1,0 +1,32 @@
+/* pages/firstPage/first.wxss */
+.container{
+  display: 
+}
+.view1{
+  height: 500rpx;
+  width: 100%;
+  background-color: rebeccapurple;
+}
+
+.view2{
+  height: 400rpx;
+  width: 80%;
+  background-color: red;
+}
+
+.view3{
+  height: 300rpx;
+  width: 60%;
+  background-color: saddlebrown;
+}
+input{
+  border: 1px solid rgb(121, 138, 197);
+  width: 90%;
+  margin: 5%;
+  padding: 5px;
+}
+
+.search_btn{
+  width:50%;
+  margin: 5px;
+}
