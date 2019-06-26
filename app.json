@@ -7,7 +7,9 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/tabTwo/tabTwo",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/tabOneOld/tabOne",
+    "pages/tabTwoOld/tabTwo"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -12,6 +12,7 @@ Page({
     shops:[],
     pageIndex:0,
     pageSize:10,
+    open_id:'0000000000000000000000000001',
     hasMore:true,
     queryKey:''
   },
@@ -19,9 +20,9 @@ Page({
     loadMore(){
         if(this.data.hasMore) {
             console.log('还有数据')
-            let {pageIndex,pageSize,queryKey}=this.data
-            const params = { _page: ++pageIndex, _limit: pageSize,q:queryKey }
-            return fetch('categories/'+this.data.category.id+'/shops', params).then(res => {
+            let {pageIndex,pageSize,open_id,queryKey}=this.data
+            const params = { Openid:open_id,Page:++pageIndex,q:queryKey }
+            return fetch('getIdea', params).then(res => {
                 console.log('加载完后再加载商品信息')
                 // console.log(res.data)
                 const totalCount = parseInt(res.header['X-Total-Count']) //字符转数字
@@ -42,26 +43,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    fetch("categories/1").then(res=>{
-    //   console.log(res.data)
-        // wx:wx.setNavigationBarTitle({
-        //     title: res.data.name,
-        //     success: function(res) {},
-        //     fail: function(res) {},
-        //     complete: function(res) {},
-        // })
-
-        //
-        this.setData({category:res.data})
-        wx.setNavigationBarTitle({
-            title: res.data.name,
-        })
-
-        //加载完分类信息过后再去加载商品信息
-        console.log(this.data.category.id)
         this.loadMore()
-    })
-    
   },
 
   /**
@@ -131,6 +113,5 @@ Page({
   searchListen:function(){
       this.setData({pageIndex:0,shops:[],q:[]})
       this.loadMore()
-      
   }
 })

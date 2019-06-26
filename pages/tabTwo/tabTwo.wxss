@@ -1,1 +1,42 @@
-/* pages/tabTwo/tabTwo.wxss */
+
+.avatar2{
+  width: 170rpx;
+  height: 170rpx;
+}
+.nickname2{
+  position: relative;
+  left: 200rpx;
+  bottom: 180rpx;
+  font-size: 18px;
+}
+.hr2{
+  width: 100%;
+  height: 15px;
+  background-color: #f4f5f6;
+}
+
+.item2{
+  display: flex;
+  flex-direction: row;
+}
+
+.title2{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  font-size: 15px;
+}
+
+.detail2 {
+  font-size: 15px;
+  position: absolute;
+  right: 10px;
+  height: 50px;
+  line-height: 50px;
+  color: #888;
+}
+
+.line2{
+  border: 1px solid #ccc;
+  opacity: 0.2;
+}

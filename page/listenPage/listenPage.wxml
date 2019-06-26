@@ -6,6 +6,49 @@
 
 <view calss="cells">
     <navigator class="item hover_demo" wx:for="{{shops}}" wx:key="id" url="../../page/detailPage/detailPage?item{{item.id}}">
+        <!-- 头像， 姓名 性别 发送时间 添加好友 -->
+        <view class="user_info1">
+            <image class="img user_info_avatar" src="{{item.images[0]}}" mode="aspectFill" />
+            <!-- <image class="img user_info_avatar" src="{{item.AvatarUrl}}"/> -->
+            <view class="user_name_gender">
+                <view class="name_gender">
+                    <view>{{item.Nickname}}</view>   <!-- 姓名 -->   
+                    <view>G:{{item.Gender}}</view> <!-- 性别 -->
+                </view>
+                <view>
+                    {{item.Time}}           <!-- 时间 -->
+                </view>
+            </view>
+            <view class="user_info1_info_haoyou">
+                {{item.Friend}}
+            </view>
+        </view>
+        <view class="user_info2">
+            {{item.Content}}
+        </view>
+
+        <view class="user_info3">
+            <view class="user_info3_direction">
+                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/expression.png" />
+                <view>
+                    item.Expression
+                </view>
+            </view>
+            <view class="user_info3_direction">
+                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/expression.png" />
+                <view>
+                    item.Comment
+                </view>
+            </view>
+            <view class="user_info3_direction">
+                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/like.png" />
+                <view>
+                    item.Like
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <!-- <navigator class="item hover_demo" wx:for="{{shops}}" wx:key="id" url="../../page/detailPage/detailPage?item{{item.id}}">
         <image class="img" src="{{item.images[0]}}" mode="aspectFill" />
         <view class="meta">
             <text class="name">电话：{{item.name}}</text>
@@ -13,7 +56,7 @@
             <text class="address">营业时间{{item.businessHours}}</text>
         </view>
         <view class="score">{{item.score}}</view>
-    </navigator>
+    </navigator> -->
 </view>
 <!-- <loading>dd</loading> -->
 <view  wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>

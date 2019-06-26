@@ -1,0 +1,19 @@
+<!--pages/tabOne/tabOne.wxml-->
+
+<swiper class='slides'>
+  <swiper-item>
+    <image src='https://wx4.sinaimg.cn/orj360/8192c0e6ly1g2biir4lzzj20u0190hdx.jpg' />
+  </swiper-item>
+    <swiper-item>
+    <image src='https://wx3.sinaimg.cn/orj360/8192c0e6ly1g2bjqovk78j20u01907wi.jpg' />
+  </swiper-item>
+</swiper>
+
+
+<view class='grid'>
+  <navigator class="item" url="../../pages/message/message?cat={{item.id}}" wx:for="{{lists}}" wx:key="{{lists.id}}">
+  <image src="{{item.icon}}" />
+  <text>{{item.name}}</text>
+  </navigator>
+</view>
+
