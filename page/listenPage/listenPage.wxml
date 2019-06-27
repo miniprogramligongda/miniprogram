@@ -6,7 +6,7 @@
 </view>
 
 <view calss="cells">
-    <navigator class="item hover_demo" wx:for="{{shops}}" wx:key="id" url="../../page/detailPage/detailPage?item{{item.id}}">
+    <view class="item hover_demo" wx:for="{{shops}}" wx:key="Openid" wx:for-index="Iid"  url="../../page/detailPage/detailPage?item={{item.Openid}}">
         <!-- 头像， 姓名 性别 发送时间 添加好友 -->
         <view class="user_info1">
             <image class="img" src="{{item.AvatarUrl}}" mode="aspectFill" />
@@ -16,14 +16,14 @@
             <view class="user_name_gender">
                 <view class="name_gender">
                     <view>{{item.Nickname}}</view>   <!-- 姓名 -->   
-                    <view>G:{{item.Gender}}</view> <!-- 性别 -->
+                    <view class="name_gender_2">G:{{item.Gender}}</view> <!-- 性别 -->
                 </view>
                 <view>
                     {{item.Time}}           <!-- 时间 -->
                 </view>
             </view>
             <view class="user_info3_img">
-                <img mode="aspectFill"  src="{{item.AvatarUrl}}" />
+                <img mode="aspectFill"  src="../../pages/img/thumb.png" />
             </view>
         </view>
         <view class="user_info2">
@@ -32,7 +32,7 @@
 
         <view class="user_info3">
             <view class="user_info3_direction">
-                <image class="user_info3_img"  src="../../pages/img/like.png" />
+                <image class="user_info3_img" bindtap='tap_like'  src="../../pages/img/thumb.png" />
                 <view>
                     {{item.Like}}
                 </view>
@@ -44,11 +44,12 @@
             <view class="user_info3_direction">
                 <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/like.png" />
                 <view>
-                    {{item.Like}}
+                    {{item.Favorite}}
                 </view>
             </view>
         </view>
-    </navigator>
+    </view>
+    <!-- </navigator> -->
     <!-- <navigator class="item hover_demo" wx:for="{{shops}}" wx:key="id" url="../../page/detailPage/detailPage?item{{item.id}}">
         <image class="img" src="{{item.images[0]}}" mode="aspectFill" />
         <view class="meta">

@@ -113,7 +113,8 @@ Page({
                 console.log('加载完后再加载商品信息')
                 // console.log(res.data)            
         // const totalCount = parseInt(res.header['X-Total-Count']) //字符转数字
-                const hasMore = this.isEmpty(res.data)
+                // const hasMore = this.isEmpty(res.data)
+                const hasMore=true
                 const shops=this.data.shops.concat(res.data)    //追加到shop里
                 this.setData({ shops, pageIndex,hasMore })
 
@@ -161,6 +162,15 @@ Page({
       }
   },
 
+    tap_like:function(e){
+        let { pageIndex, pageSize, open_id, queryKey } = this.data
+        // 先顶死了 两个参数
+        const params = { Openid: 'oYKEK43t1HNAljVQRGGMibzjRIeQ', Iid: '42' }
+        return fetch('like', params).then(res => {
+            console.log('加载完后再加载商品信息')
+            console.log(res.data)
+        })
+    },
   /**
    * 生命周期函数--监听页面显示
    */
