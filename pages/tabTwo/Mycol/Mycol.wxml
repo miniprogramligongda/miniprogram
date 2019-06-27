@@ -1,0 +1,24 @@
+
+<!--pages/tabTwo/Mycol/Mycol.wxml-->
+
+<view calss="cells">
+    <view class="item hover_demo" wx:for="{{shops}}" wx:key="Openid" wx:for-index="Iid"  url="../../page/detailPage/detailPage?item={{item.Openid}}">
+        <!-- 头像， 姓名 性别 发送时间 添加好友 -->
+        <view class="user_info1">
+            <image class="img" src="{{item.AvatarUrl}}" mode="aspectFill" />
+            <view class="user_name_gender">
+                <view class="name_gender">
+                    <view>{{item.Nickname}}</view>   <!-- 姓名 -->   
+                    <view class="name_gender_2">G:{{item.Gender}}</view> <!-- 性别 -->
+                </view>
+                <view>
+                    {{item.Time}}           <!-- 时间 -->
+                </view>
+            </view>
+        </view>
+        <view class="user_info2">
+            {{item.Content}}
+        </view>
+
+    </view>
+</view>
