@@ -1,0 +1,13 @@
+<view class="container01">
+
+  <view class="input1">
+    <!-- <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请输入心声" /> -->
+     <input type='text' value='' name='name' placeholder="请输入加好友理由" class='regCon-txt' bindinput='formName' />
+
+  </view>
+
+
+  <view class="picture4">
+    <image src="../../pages/img/send.png"  bindtap="sendMessage"></image>
+  </view>
+</view>
