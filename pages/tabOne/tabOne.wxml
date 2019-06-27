@@ -1,19 +1,45 @@
-<!--pages/tabOne/tabOne.wxml-->
+<button wx:if="{{!showFlag}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
+<!-- <form bindsubmit="formSubmit" >
+    <view class="section">
+    <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请输入心声" value="{{xinsheng_contain}}" />
+ </view> 
+</form>  -->
 
-<swiper class='slides'>
-  <swiper-item>
-    <image src='https://wx4.sinaimg.cn/orj360/8192c0e6ly1g2biir4lzzj20u0190hdx.jpg' />
-  </swiper-item>
-    <swiper-item>
-    <image src='https://wx3.sinaimg.cn/orj360/8192c0e6ly1g2bjqovk78j20u01907wi.jpg' />
-  </swiper-item>
-</swiper>
+<view class="container01">
+
+  <view class="input1">
+    <!-- <textarea bindblur="bindTextAreaBlur" auto-height placeholder="请输入心声" /> -->
+     <input type='text' value='' name='name' placeholder="请输入心声" class='regCon-txt' bindinput='formName' />
+
+  </view>
 
 
-<view class='grid'>
-  <navigator class="item" url="../../pages/message/message?cat={{item.id}}" wx:for="{{lists}}" wx:key="{{lists.id}}">
-  <image src="{{item.icon}}" />
-  <text>{{item.name}}</text>
-  </navigator>
+  <view class="picture1">
+    <image src="../img/Microphone.png" bindtap="clickMic"></image>
+  </view>
+
+  <view class="picture2">
+    <image src="../img/photo.png" bindtap="clickPho"></image>
+  </view>
+
+  <view class="picture5">
+    <image src="../img/camera.png" bindtap="clickCam"></image>
+  </view>
+
+  <view class="picture3">
+    <image catchtap='open_tap' wx:if="{{isShow}}" src="../img/lock_open.png" ></image>
+
+    <image wx:else catchtap='close_tap' src='../img/lock.png' ></image>
+
+    <view>
+
+      <image catchtap='clickLoc' wx:if="{{iShow}}" src="{{url}}" data-msg="{{url}}" ></image>
+
+    </view>
+
+  </view>
+
+  <view class="picture4">
+    <image src="../img/send.png"  bindtap="sendMessage"></image>
+  </view>
 </view>
-

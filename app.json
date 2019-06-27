@@ -7,7 +7,12 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/tabTwo/tabTwo",
-    "pages/message/message"
+    "pages/message/message",
+    "pages/tabOneOld/tabOne",
+    "pages/tabTwoOld/tabTwo",
+    "pages/tabTwo/MySet/MySet",
+    "pages/tabTwo/idea/idea",
+    "pages/tabTwo/Mycol/Mycol"
   ],
   "window": {
     "backgroundTextStyle": "light",

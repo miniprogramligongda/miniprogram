@@ -1,0 +1,29 @@
+<view class="hr_set"></view>
+<view class="line_set"></view>
+
+<view class="set">
+  <view class="title_set" >消息提醒</view>
+  <switch class="switch_1" checked="{{isChecked1}}" bindchange="changeSwitch1"/>
+  
+  
+</view>
+
+<view class="line_set"></view>
+<view class="set">
+  <view class="title_set" >展示心声</view>
+  <switch class="switch_1" checked="{{isChecked2}}" bindchange="changeSwitch2"/>
+</view>
+
+<view class="line_set"></view>
+<view class="set">
+  <view class="title_set" >接收好友请求</view>
+  <switch class="switch_1_3" checked="{{isChecked3}}" bindchange="changeSwitch3"/>
+</view>
+
+<view class="line_set"></view>
+<view class="set">
+  <view class="title_set" >夜间模式</view>
+  <switch class="switch_1" checked="{{isChecked4}}" bindchange="changeSwitch3"/>
+</view>
+
+<view class="hr_set"></view>

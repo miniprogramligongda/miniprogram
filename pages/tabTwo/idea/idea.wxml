@@ -1,0 +1,9 @@
+<view container_idea>
+  <view>
+    <textarea bindblur="bindTextAreaBlur" auto-height placeholder="欢迎写出你的意见" />
+  </view>
+
+  <view class="picture_idea">
+    <image src="../../img/send.png" bindtap="clickSend_idea"></image>
+  </view>
+</view>
