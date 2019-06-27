@@ -9,10 +9,7 @@
     <view class="item hover_demo" wx:for="{{shops}}" wx:key="Openid" wx:for-index="Iid"  >
         <!-- 头像， 姓名 性别 发送时间 添加好友 -->
         <view class="user_info1">
-            <image class="img" src="{{item.AvatarUrl}}" mode="aspectFill" />
-            <!-- <image  wx:if="{{item.Friend}}" class="img user_info_avatar" src="{{item.AvatarUrl}}" mode="aspectFill" />
-            <image  wx:else class="img user_info_avatar" src="../../i" mode="aspectFill" /> -->
-            <!-- <image class="img user_info_avatar" src="{{item.AvatarUrl}}"/> -->
+            <image class="img" src="{{item.AvatarUrl}}" mode="aspectFill" />            
             <view class="user_name_gender">
                 <view class="name_gender">
                     <view>{{item.Nickname}}</view>   <!-- 姓名 -->   

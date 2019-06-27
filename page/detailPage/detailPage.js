@@ -1,13 +1,16 @@
 // page/detailPage/detailPage.js
 const fetch = require('../../utils/fetch.js')
-
+var app=getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        shops:[]
+        shops:[],
+        input_contain:'',
+        open_id:'',
+        i_id:''
     },
 
     /**
@@ -16,6 +19,8 @@ Page({
     onLoad: function (options) {
         console.log('--print onLoad--')
         console.log(options)
+        this.setData({open_id:options.Openid})
+        this.setData({i_id:options.Iid})
         let openid=options.Openid
         let iid=options.Iid
         // 先顶死了 两个参数
@@ -24,9 +29,62 @@ Page({
         return fetch('getComment', params).then(res => {
             console.log('加载完后再加载商品信息')
             console.log(res.data)
-            that.setData(res.data)
+            that.setData({shops:res.data})
+        })        
+    },
+    
+    /**
+     * 获取input内容
+     */
+    formName: function (e) {
+        this.setData({
+            input_contain: e.detail.value
         })
     },
+    
+    /**
+     * 发表评论
+     */
+    sendMessage: function (e) {
+        var that = this
+        console.log('print get contain')
+        console.log(that.data.i_id)
+
+        console.log(that.data.input_contain)
+        // Notes: that.data.input_contain
+
+        wx.request({
+            url: 'https://apis.1.chensmallx.top:1323/postComment',
+            method: 'POST',
+            data: {
+                Openid: app.globalData.userId,
+                Iid: 42,
+                Content:that.data.input_contain
+            },
+            header: {
+                'content-type': 'application/x-www-form-urlencoded'//默认值
+            },
+            success(res) {
+                console.log('success')
+                console.log(res)
+                wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                })
+            },
+            fail(res) {
+                console.log('fail')
+                console.log(res)
+                wx.showToast({
+                    title: '发送失败',
+                    icon: 'cancel',
+                    duration: 2000
+                })
+            }
+        })
+    },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成

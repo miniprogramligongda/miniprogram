@@ -12,7 +12,8 @@
     "pages/tabTwoOld/tabTwo",
     "pages/tabTwo/MySet/MySet",
     "pages/tabTwo/idea/idea",
-    "pages/tabTwo/Mycol/Mycol"
+    "pages/tabTwo/Mycol/Mycol",
+    "page/addFriends/addFriends"
   ],
   "window": {
     "backgroundTextStyle": "light",
