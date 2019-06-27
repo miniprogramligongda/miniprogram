@@ -1,21 +1,6 @@
 /* pages/tabTwo/Mycol/Mycol.wxss */
-.search{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20rpx;
-    border-top: 1rpx solid #e0e0e0;
-    margin: 20rpx;
-    border: 1rpx solid #e0e0e0;
-    border-radius: 10rpx;
-    box-shadow: 0 0 5rpx #e0e0e0;
-}
 
-.searchInput{
-    margin-left: 30rpx;
-    border-radius: 30%;
-}
+
 
 .item{
   border-radius: 10px;
@@ -24,7 +9,7 @@
   margin: 8px;
   position: relative;
   border: solid 1rpx #ccc;
-  height: 200px;
+  height: 150px;
   display: flex;
   flex-direction: column;
 }
