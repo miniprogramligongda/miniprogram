@@ -29,6 +29,10 @@ Page({
             url: 'add_address/add_address',
         })
     },
+
+    /**
+     * 获取input内容
+     */
     formName: function (e) {
         this.setData({
             input_contain: e.detail.value
@@ -45,9 +49,7 @@ Page({
         var that = this
         console.log('print get contain')
         console.log(that.data.input_contain)
-
-
-                // Notes: that.data.input_contain
+        // Notes: that.data.input_contain
 
         wx.request({
             url: 'https://apis.1.chensmallx.top:1323/friendRequest',

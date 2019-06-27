@@ -24,7 +24,7 @@
   margin: 8px;
   position: relative;
   border: solid 1rpx #ccc;
-  height: 200px;
+  height: 100px;
   display: flex;
   flex-direction: column;
 }
@@ -42,17 +42,6 @@
   flex-direction: column;  
   flex-grow: 4;
   font-size: 12px;
-}
-.score{
-    display: flex;
-    justify-content: center;
-    flex-grow: 1;
-}
-
-.loadmore{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;    
 }
 
 .user_info{
@@ -79,34 +68,30 @@
     flex-direction: row;
     flex-grow: 1;
 }
-.user_info3{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    flex-grow: 1;  
-    font-size:8px;
-    align-content: center;
-}
-.user_info3_direction{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    left: 20rpx;
-    font-size:12px;
-}
+
 .user_info3_img{
     margin-right: 10rpx;
     align-items: center;
     width:50rpx;
     height: 50rpx;
 }
-.user_info1_info_haoyou{
-    width:100rpx;
-    height: 100%;
-}
-
 .user_name_gender{
     margin-left:50rpx;
     flex: 1;
     font-size: 12px;
+}
+.container01{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 50rpx;
+  margin-left: 20rpx;
+}
+
+.picture4 image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
 }
