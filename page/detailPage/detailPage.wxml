@@ -1,2 +1,44 @@
-<!--page/detailPage/detailPage.wxml-->
-<text>page/detailPage/detailPage.wxml</text>
+<view calss="cells">
+    <view class="item hover_demo" wx:for="{{shops}}" wx:key="Openid" wx:for-index="Iid"  >
+        <!-- 头像， 姓名 性别 发送时间 添加好友 -->
+        <view class="user_info1">
+            <image class="img" src="{{item.AvatarUrl}}" mode="aspectFill" />
+            <view class="user_name_gender">
+                <view class="name_gender">
+                    <view>{{item.Nickname}}</view>   <!-- 姓名 -->   
+                    <view wx:if="{{item.Gender}}" class="name_gender_2" >    ♂</view>
+                    <view wx:else class="name_gender_2" > ♀</view> <!-- 性别 -->
+                </view>
+                <view>
+                    {{item.Time}}           <!-- 时间 -->
+                </view>
+            </view>
+            <navigator class="user_info3_img" bindtap='tap_addFriends' url="../../page/addFriends/addFriends?ObjectOpenid={{userId}}&SubjectOpenid={{item.Openid}}">
+                <image class="user_info3_img" src="../../pages/img/friends.png" />
+            </navigator>
+        </view>
+        <view class="user_info2">
+            {{item.Content}}
+        </view>
+
+        <view class="user_info3">
+            <view class="user_info3_direction">
+                <image class="user_info3_img" bindtap='tap_like'  src="../../pages/img/thumb.png" />
+                <view>
+                    {{item.Like}}
+                </view>
+            </view>
+            <!-- 跳转评论 -->
+            <navigator class="user_info3_direction" bindtap='tap_addFriends' url="../../page/detailPage/detailPage?Iid={{item.Iid}}&Openid={{userId}}">
+                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/comment.png" />    
+            </navigator>
+            <view class="user_info3_direction">
+                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/like.png" />
+                <view>
+                    {{item.Favorite}}
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- </navigator> -->
+</view>

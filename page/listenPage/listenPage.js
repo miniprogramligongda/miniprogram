@@ -8,6 +8,7 @@ Page({
   data: {
     //当前加载的分类
     category:{},
+    userId:app.globalData.userId,
     showFlag:app.globalData.showFlag,
     //此分类下的
     shops:[],
@@ -94,7 +95,7 @@ Page({
                             })
                         } else {
                             console.log('获取用户信息失败!' + res.errMsg)
-                        }
+                        } 
                     }
                 })
                 // 所以此处加入 callback 以防止这种情况
@@ -108,6 +109,8 @@ Page({
         if(this.data.hasMore) {
             console.log('还有数据')
             let {pageIndex,pageSize,open_id,queryKey}=this.data
+            open_id=app.globalData.userId
+            console.log(open_id)
             const params = { Openid:open_id,Page:++pageIndex }
             return fetch('getIdea', params).then(res => {
                 console.log('加载完后再加载商品信息')
@@ -115,8 +118,8 @@ Page({
         // const totalCount = parseInt(res.header['X-Total-Count']) //字符转数字
                 // const hasMore = this.isEmpty(res.data)
                 const hasMore=true
-                const shops=this.data.shops.concat(res.data)    //追加到shop里
-                this.setData({ shops, pageIndex,hasMore })
+                const shops=this.data.shops.concat(res.data) //追加到shop里
+                this.setData({ shops, pageIndex,hasMore,userId:app.globalData.userId })
 
                 // this.setData({ shops: res.data,pageIndex })
                 // console.log('----') 
@@ -131,6 +134,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+      console.log('--print-onLoad--')
+      console.log(options)
         this.loadMore()
   },
 
@@ -161,7 +166,30 @@ Page({
           })
       }
   },
+    //bindtap事件 加好友
+    tap_addFriends:function(e){
+        console.log(' 加好友')        
+        // wx.showModal({
+        //     title: '请求添加好友',
+        //     success(res) {
+        //         if (res.confirm) {
+        //             console.log('用户点击确定')
+        //         } else if (res.cancel) {
+        //             console.log('用户点击取消')
+        //         }
+        //     }
+        // })
+        
+        // let { pageIndex, pageSize, open_id, queryKey } = this.data
+        // 先顶死了 两个参数
+        // const params = { Openid: 'oYKEK43t1HNAljVQRGGMibzjRIeQ', Iid: '42' }
+        // return fetch('like', params).then(res => {
+        //     console.log('加载完后再加载商品信息')
+        //     console.log(res.data)
+        // })
+    },
 
+    //bindtap事件  点赞
     tap_like:function(e){
         let { pageIndex, pageSize, open_id, queryKey } = this.data
         // 先顶死了 两个参数
