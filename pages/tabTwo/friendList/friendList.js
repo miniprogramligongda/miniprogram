@@ -1,38 +1,37 @@
 // page/detailPage/detailPage.js
-const fetch = require('../../utils/fetch.js')
-var app=getApp()
+const fetch = require('../../../utils/fetch.js')
+var app = getApp()
 Page({
 
     /**
      * 页面的初始数据
      */
     data: {
-        shops:[],
-        input_contain:'',
-        open_id:'',
-        i_id:''
+        shops: [],
+        input_contain: '',
+        open_id: '',
+        i_id: ''
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        
         console.log('--print onLoad--')
         console.log(options)
-        this.setData({open_id:options.Openid})
-        this.setData({i_id:options.Iid})
         // 先顶死了 两个参数
         // 'oYKEK43t1HNAljVQRGGMibzjRIeQ'
         // '42'
-        var that=this
-        const params = { Openid: options.Openid, Iid: options.Iid}
-        return fetch('getComment', params).then(res => {
+        var that = this
+        const params = { ObjectOpenid: options.Openid }
+        return fetch('friendRequestList', params).then(res => {
             console.log('加载完后再加载商品信息')
             console.log(res.data)
-            that.setData({shops:res.data})
-        })        
+            that.setData({ shops: res.data })
+        })
     },
-    
+
     /**
      * 获取input内容
      */
@@ -41,7 +40,7 @@ Page({
             input_contain: e.detail.value
         })
     },
-    
+
     /**
      * 发表评论
      */
@@ -59,7 +58,7 @@ Page({
             data: {
                 Openid: app.globalData.userId,
                 Iid: that.data.i_id,
-                Content:that.data.input_contain
+                Content: that.data.input_contain
             },
             header: {
                 'content-type': 'application/x-www-form-urlencoded'//默认值

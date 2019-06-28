@@ -17,9 +17,6 @@
                         {{item.Time}}           <!-- 时间 -->
                     </view>
                 </view>
-                <view class="user_info3_img">
-                    <image class="user_info3_img"  bindtap='tap_like' src="../../pages/img/thumb.png" />
-                </view>
             </view>
             <view class="user_info2">
                 {{item.Content}}
@@ -30,12 +27,4 @@
     </scroll-view>
     <!-- </view> -->
 
-    <view class="search">
-        <view class="input1">
-            <input class="searchInput" type='text' value='' name='name' placeholder="发表评论" class='regCon-txt' bindinput='formName' />
-        </view>
-        <view class="picture4 searchIcon">
-            <image src="../../pages/img/send.png"  bindtap="sendMessage"></image>
-        </view>
-    </view>
 </view>

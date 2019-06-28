@@ -1,27 +1,28 @@
 <!--page/listenPage/listenPage.wxml-->
+<button wx:if="{{!showFlag}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权</button>
 <view class="search">
     <input class="searchInput" placeholder='搜索' />
     <icon class="searchIcon" bindtap='searchListen' type="search" size="15" />
 </view>
 
 <view calss="cells">
-    <navigator class="item hover_demo" wx:for="{{shops}}" wx:key="id" url="../../page/detailPage/detailPage?item{{item.id}}">
+    <view class="item hover_demo" wx:for="{{shops}}" wx:key="Openid" wx:for-index="Iid"  >
         <!-- 头像， 姓名 性别 发送时间 添加好友 -->
         <view class="user_info1">
-            <image class="img user_info_avatar" src="{{item.images[0]}}" mode="aspectFill" />
-            <!-- <image class="img user_info_avatar" src="{{item.AvatarUrl}}"/> -->
+            <image class="img" src="{{item.AvatarUrl}}" mode="aspectFill" />            
             <view class="user_name_gender">
                 <view class="name_gender">
                     <view>{{item.Nickname}}</view>   <!-- 姓名 -->   
-                    <view>G:{{item.Gender}}</view> <!-- 性别 -->
+                    <view wx:if="{{item.Gender}}" class="name_gender_2" >    ♂</view>
+                    <view wx:else class="name_gender_2" > ♀</view> <!-- 性别 -->
                 </view>
                 <view>
                     {{item.Time}}           <!-- 时间 -->
                 </view>
             </view>
-            <view class="user_info1_info_haoyou">
-                {{item.Friend}}
-            </view>
+            <navigator class="user_info3_img" bindtap='tap_addFriends' url="../../page/addFriends/addFriends?ObjectOpenid={{open_id}}&SubjectOpenid={{item.Openid}}">
+                <image class="user_info3_img" src="../../pages/img/friends.png" />
+            </navigator>
         </view>
         <view class="user_info2">
             {{item.Content}}
@@ -29,34 +30,24 @@
 
         <view class="user_info3">
             <view class="user_info3_direction">
-                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/expression.png" />
+                <image data-id="{{item.Iid}}" class="user_info3_img" bindtap='tap_like'  src="../../pages/img/thumb.png" />
                 <view>
-                    item.Expression
+                    {{item.Like}}
                 </view>
             </view>
+            <!-- 跳转评论 -->
+            <navigator class="user_info3_direction" bindtap='tap_addFriends' url="../../page/detailPage/detailPage?Iid={{item.Iid}}&Openid={{userId}}">
+                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/comment.png" />    
+            </navigator>
             <view class="user_info3_direction">
-                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/expression.png" />
+                <image data-id="{{item.Iid}}" class="user_info3_img" bindtap='tap_fav' mode="aspectFill"  src="../../pages/img/like.png" />
                 <view>
-                    item.Comment
-                </view>
-            </view>
-            <view class="user_info3_direction">
-                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/like.png" />
-                <view>
-                    item.Like
+                    {{item.Favorite}}
                 </view>
             </view>
         </view>
-    </navigator>
-    <!-- <navigator class="item hover_demo" wx:for="{{shops}}" wx:key="id" url="../../page/detailPage/detailPage?item{{item.id}}">
-        <image class="img" src="{{item.images[0]}}" mode="aspectFill" />
-        <view class="meta">
-            <text class="name">电话：{{item.name}}</text>
-            <text class="phone">地址：{{item.phone}}</text>
-            <text class="address">营业时间{{item.businessHours}}</text>
-        </view>
-        <view class="score">{{item.score}}</view>
-    </navigator> -->
+    </view>
+    <!-- </navigator> -->
 </view>
 <!-- <loading>dd</loading> -->
 <view  wx:if="{{hasMore}}" class="loadmore loading">正在加载...</view>

@@ -2,7 +2,7 @@
 
 //sort.js
 //獲取應用實例
-var app = getApp
+var app = getApp()
 Page({
 
     /**
@@ -13,7 +13,11 @@ Page({
         userInfo: {
             avatarUrl: "", //用户头像
             nickName: "", //用户昵称
+            showFlag: app.globalData.showFlag
         },
+        height: 20,
+        focus: false,
+        input_contain: '',
         productInfo: {},
         isShow: false,
         url: "../img/lock.png",
@@ -21,6 +25,12 @@ Page({
         user_code:[]
     },
 
+    bindTextAreaBlur: function (e) {
+        this.setData({
+            xinsheng_contain: e.detail.value
+        })
+
+    },
     /**
      *点击添加地址事件
      */
@@ -34,6 +44,9 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        this.setData({showFlag:app.globalData.showFlag})
+        console.log('---print--userId')
+        console.log(app.globalData.userId);
         var that = this;
         /**
          * 获取用户信息
@@ -48,18 +61,8 @@ Page({
                     [nickName]: res.userInfo.nickName,
                 })
             }
-        }),
-
-        /**
-         * 获取用户信息
-         */
-        wx.login({
-            success: res => {
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId
-                console.log(res.code)
-                this.setData({ user_code: res.code })
-            }
         })
+
     },
     clickMic: function () {
         var s = this;
@@ -189,15 +192,22 @@ Page({
             url: url
         })
     },
-
-    sendMessage:function(){      
-        console.log(this.data.user_code)
+    formName: function (e) {
+        this.setData({
+            input_contain: e.detail.value
+        })
+    },
+    sendMessage:function(e){  
+        var that=this
+        console.log('print get contain')    
+        console.log(that.data.input_contain)
         wx.request({
             url: 'https://apis.1.chensmallx.top:1323/postIdea',
             method:'POST',
             data: {
-                Openid: '0000000000000000000000000001',
-                Content: 'dddddd',
+                Openid: app.globalData.userId,
+                Content: that.data.input_contain,
+                // Content: '每天反复告诉自己，每天无论有多伤心都要笑，就是为了不要让那些看不起自己的人看笑话，哪里来的这么多委屈，睡觉之前甩甩被子，都甩干净了再重新拾起笑容，面对生活。',
             },
             header: {
                 'content-type': 'application/x-www-form-urlencoded' // 默认值
@@ -205,10 +215,20 @@ Page({
             success(res){
                 console.log('success')
                 console.log(res)
+                wx.showToast({
+                    title: '成功',
+                    icon: 'success',
+                    duration: 2000
+                })
             },
             fail(res){
                 console.log('fail')
                 console.log(res)
+                wx.showToast({
+                    title: '发送失败',
+                    icon: 'fail',
+                    duration: 2000
+                })
             }
 
         })

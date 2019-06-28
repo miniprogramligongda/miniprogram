@@ -4,7 +4,6 @@
     flex-direction: column;
 }
 .search{
-
   display: flex;
   align-items: flex-end; 
   justify-content: space-between; 
@@ -18,9 +17,6 @@
   background-color: #ffffff;
   font-size: 15px;
   z-index: 999;
-
-
-
 }
 
     /* height: 80rpx;
