@@ -30,7 +30,7 @@
 
         <view class="user_info3">
             <view class="user_info3_direction">
-                <image class="user_info3_img" bindtap='tap_like'  src="../../pages/img/thumb.png" />
+                <image data-id="{{item.Iid}}" class="user_info3_img" bindtap='tap_like'  src="../../pages/img/thumb.png" />
                 <view>
                     {{item.Like}}
                 </view>
@@ -40,7 +40,7 @@
                 <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/comment.png" />    
             </navigator>
             <view class="user_info3_direction">
-                <image class="user_info3_img" mode="aspectFill"  src="../../pages/img/like.png" />
+                <image data-id="{{item.Iid}}" class="user_info3_img" bindtap='tap_fav' mode="aspectFill"  src="../../pages/img/like.png" />
                 <view>
                     {{item.Favorite}}
                 </view>

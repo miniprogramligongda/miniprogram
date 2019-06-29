@@ -21,11 +21,11 @@ Page({
         console.log(options)
         this.setData({open_id:options.Openid})
         this.setData({i_id:options.Iid})
-        let openid=options.Openid
-        let iid=options.Iid
         // 先顶死了 两个参数
+        // 'oYKEK43t1HNAljVQRGGMibzjRIeQ'
+        // '42'
         var that=this
-        const params = { Openid: 'oYKEK43t1HNAljVQRGGMibzjRIeQ', Iid: '42' }
+        const params = { Openid: options.Openid, Iid: options.Iid}
         return fetch('getComment', params).then(res => {
             console.log('加载完后再加载商品信息')
             console.log(res.data)
@@ -58,7 +58,7 @@ Page({
             method: 'POST',
             data: {
                 Openid: app.globalData.userId,
-                Iid: 42,
+                Iid: that.data.i_id,
                 Content:that.data.input_contain
             },
             header: {

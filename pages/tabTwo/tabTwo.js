@@ -13,7 +13,7 @@ Page({
         userInfo: {
             avatarUrl: "",//用户头像
             nickName: "",//用户昵称
-            province: "",//用户省份
+            gender: "",//用户省份
             city: "",//用户城市
             showFlag: app.globalData.showFlag,
         },
@@ -44,12 +44,12 @@ Page({
                 console.log(res);
                 var avatarUrl = 'userInfo.avatarUrl';
                 var nickName = 'userInfo.nickName';
-                var province = 'userInfo.province';
+                var gender = 'userInfo.gender';
                 var city = 'userInfo.city';
                 that.setData({
                     [avatarUrl]: res.userInfo.avatarUrl,
                     [nickName]: res.userInfo.nickName,
-                    [province]: res.userInfo.province,
+                    [gender]: res.userInfo.gender,
                     [city]: res.userInfo.city,
                 })
             }

@@ -180,7 +180,6 @@ Page({
         //     }
         // })
         
-        // let { pageIndex, pageSize, open_id, queryKey } = this.data
         // 先顶死了 两个参数
         // const params = { Openid: 'oYKEK43t1HNAljVQRGGMibzjRIeQ', Iid: '42' }
         // return fetch('like', params).then(res => {
@@ -191,14 +190,46 @@ Page({
 
     //bindtap事件  点赞
     tap_like:function(e){
-        let { pageIndex, pageSize, open_id, queryKey } = this.data
-        // 先顶死了 两个参数
-        const params = { Openid: 'oYKEK43t1HNAljVQRGGMibzjRIeQ', Iid: '42' }
+        console.log(e.currentTarget.dataset.id)
+        var that=this
+        const params = { Openid: app.globalData.userId, Iid: e.currentTarget.dataset.id }
         return fetch('like', params).then(res => {
             console.log('加载完后再加载商品信息')
             console.log(res.data)
+            var items=that.data.shops
+            var item
+            for (let i = 0; i < items.length; i++){
+                if (items[i].Iid == e.currentTarget.dataset.id){
+                    items[i].Like=items[i].Like+1
+                    that.setData({shops:items})
+                }
+            }
+            console.log(items)
         })
     },
+    //bindtap事件  收藏
+    tap_fav: function (e) {
+        var that=this
+        console.log(e.currentTarget.dataset.id)
+        // let { pageIndex, pageSize, open_id, queryKey } = this.data
+        // 先顶死了 两个参数
+        const params = { Openid: app.globalData.userId, Iid: e.currentTarget.dataset.id }
+        return fetch('fav', params).then(res => {
+            console.log('收藏成功')
+            console.log(res.data)
+            var items = that.data.shops
+            var item
+            for (let i = 0; i < items.length; i++) {
+                if (items[i].Iid == e.currentTarget.dataset.id) {
+                    items[i].Favorite = items[i].Favorite + 1
+                    that.setData({ shops: items })
+                }
+            }
+            console.log(items)
+        })
+    },
+    
+
   /**
    * 生命周期函数--监听页面显示
    */

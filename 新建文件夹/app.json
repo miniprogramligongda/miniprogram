@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "page/listenPage/listenPage",
+    "page/detailPage/detailPage",
+    "pages/tabOne/tabOne",
+    "pages/firstPage/first",
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/tabTwo/tabTwo",
+    "pages/message/message",
+    "pages/tabOneOld/tabOne",
+    "pages/tabTwoOld/tabTwo",
+    "pages/tabTwo/MySet/MySet",
+    "pages/tabTwo/idea/idea",
+    "pages/tabTwo/Mycol/Mycol",
+    "page/addFriends/addFriends",
+    "pages/tabTwo/friendList/friendList"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "分答",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "selectedColor": "#fd0",
+    "list": [
+        {
+            "pagePath": "page/listenPage/listenPage",
+            "text": "收听",
+            "iconPath": "pages/img/listen.png",
+            "selectedIconPath": "pages/img/listen_act.png"
+        },
+        {
+            "pagePath": "pages/tabOne/tabOne",
+            "text": "心声",
+            "iconPath": "pages/img/love_sound.png",
+            "selectedIconPath": "pages/img/love_sound_act.png"
+        },
+        {
+            "pagePath": "pages/tabTwo/tabTwo",
+            "text": "我的",
+            "iconPath": "pages/img/person.png",
+            "selectedIconPath": "pages/img/person_act.png"
+        }
+    ]
+  }
+
+}

@@ -1,0 +1,33 @@
+
+<view class="main">
+    <!-- <view class="cells"> -->
+    <scroll-view scroll-y="true" >
+
+        <view class="item hover_demo" wx:for="{{shops}}" wx:key="Openid" wx:for-index="Iid"  >
+            <!-- 头像， 姓名 性别 发送时间 添加好友 -->
+            <view class="user_info1">
+                <image class="img" src="{{item.AvatarUrl}}" mode="aspectFill" />
+                <view class="user_name_gender">
+                    <view class="name_gender">
+                        <view>{{item.Nickname}}</view>   <!-- 姓名 -->   
+                        <view wx:if="{{item.Gender}}" class="name_gender_2" >    ♂</view>
+                        <view wx:else class="name_gender_2" > ♀</view> <!-- 性别 -->
+                    </view>
+                    <view>
+                        {{item.Time}}           <!-- 时间 -->
+                    </view>
+                </view>
+                <view class="user_info3_img">
+                    <image class="user_info3_img"  bindtap='tap_like' src="../../../pages/img/thumb.png" />
+                </view>
+            </view>
+            <view class="user_info2">
+                {{item.Content}}
+            </view>
+
+        </view>
+        <!-- </navigator> -->
+    </scroll-view>
+    <!-- </view> -->
+
+</view>

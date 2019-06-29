@@ -1,17 +1,39 @@
 /* page/listenPage/listenPage.wxss */
+.main{
+    display: flex;
+    flex-direction: column;
+}
 .search{
+
+  display: flex;
+  align-items: flex-end; 
+  justify-content: space-between; 
+  border-radius: 10rpx;
+  box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 0 8px 13px;
+  background-color: #ffffff;
+  font-size: 15px;
+  z-index: 999;
+
+
+
+}
+
+    /* height: 80rpx;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-end; 
     justify-content: space-between;
     padding: 20rpx;
     border-top: 1rpx solid #e0e0e0;
     margin: 20rpx;
     border: 1rpx solid #e0e0e0;
     border-radius: 10rpx;
-    box-shadow: 0 0 5rpx #e0e0e0;
-}
-
+    box-shadow: 0 0 5rpx #e0e0e0; */
 .searchInput{
     margin-left: 30rpx;
     border-radius: 30%;

@@ -12,8 +12,8 @@ page{
 }
 
 .picture4 image{
-  width: 50rpx;
-  height: 50rpx;
+  width: 70rpx;
+  height: 70rpx;
   margin-top: 50rpx;
-  margin-right: 40rpx;
+  margin-right: 20rpx;
 }
