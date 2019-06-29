@@ -1,1 +1,2 @@
-hello_canliu.
+test merge b
+hello world
